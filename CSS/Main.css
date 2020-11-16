@@ -1,5 +1,15 @@
+
+@font-face {
+  font-family: Endgame;
+  src: url(/fonts/AvengeroDisassembledRegular-nRvd4.ttf);
+}
+
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 * {
+
   box-sizing: inherit;
   -webkit-transition-property: all;
   transition-property: all;
@@ -13,10 +23,11 @@
 html,
 body{
     overflow-x: hidden;
+
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+
 
 
 
@@ -28,14 +39,14 @@ div#BackGround{
     height: 1700px;
     background-position: center;
 
-
+     overflow: hidden;
     background-color: #322D47;
    background-image: url(/Images/Avengers-Endgame-2019-Android-Wallpaper.jpg);
     background-repeat: no-repeat;
 
 }
 div#BackGround #poster{
-
+    overflow: hidden;
     position: relative;
     width: 100%;
     height: 100%;
@@ -90,9 +101,6 @@ nav div#Logo-container img {
     left: 15%;
 
 }
-
-
-
 
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
@@ -196,3 +204,89 @@ nav div#Logo-container img {
   top: 0;
   width: 70%;
 }
+
+/********* CONTENT ************ */
+
+section{
+    margin-top: 100px;
+
+    width: 90vw;
+    position: relative;
+    left: 5vw;
+}
+
+section#Filter{
+    background-color: #981005;
+    position: relative;
+    width: 90vw;
+    height: 60px;
+
+    left: 5vw;
+}
+section#Content{
+    background-color: rgba(50, 45, 71,0.7);
+    position: relative;
+    width: 90vw;
+    height: 1000px;
+
+    left: 5vw;
+
+    border-left: 1px;
+    border: solid 1px #981005;;
+}
+
+
+section#Content ul{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+    flex-wrap: wrap;
+
+
+
+}
+section#Content ul li{
+    position: relative;
+    width: 15%;
+    height: 400px;
+
+    cursor: pointer;
+
+    margin-top: 40px;
+    margin-left: 50px;
+
+    background-image: url(/Images/Avengers-Endgame-2019-Android-Wallpaper.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section#Content ul li p{
+    position: absolute;
+    width: 100%;
+
+    font-family: Endgame;
+    color: white;
+    margin-bottom: 20px;
+    bottom: 0;
+    z-index: 1;
+
+    text-align: center;
+
+}
+section#Content ul li div.bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    /*background-color: rgba(255,0,0,0.5);*/
+}
+
+
+
+
+
