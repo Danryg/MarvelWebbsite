@@ -53,7 +53,7 @@ div#BackGround #poster{
     background-color: rgba(50, 45, 71,0.7);
 }
 
-
+/* ------------------------------------------NAVIGERING---------------------------------------------------- */
 nav{
     display: flex;
     flex-direction: row;
@@ -103,7 +103,7 @@ nav div#Logo-container img {
 }
 
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+/*movies buttom container*/
 
 .container {
     box-sizing: border-box;
@@ -205,7 +205,9 @@ nav div#Logo-container img {
   width: 70%;
 }
 
-/********* CONTENT ************ */
+/*------------------------------------------- FILTER -------------------------------------------------------*/
+
+/*------------------------------------------- CONTENT ------------------------------------------------------*/
 
 section{
     margin-top: 100px;
@@ -227,9 +229,11 @@ section#Content{
     background-color: rgba(50, 45, 71,0.7);
     position: relative;
     width: 90vw;
-    height: 1000px;
+    height: 1300px;
 
     left: 5vw;
+
+    overflow: hidden;
 
     border-left: 1px;
     border: solid 1px #981005;;
@@ -239,13 +243,15 @@ section#Content{
 section#Content ul{
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 100%;
     display: flex;
     flex-direction: row;
 
     list-style: none;
     flex-wrap: wrap;
+    align-content: flex-start;
 
+    overflow: hidden;
 
 
 }

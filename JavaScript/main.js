@@ -31,7 +31,7 @@ $(function (){
 
     $.ajax({
         type:'GET',
-        url: 'http://localhost:3000/api/movies',
+        url: 'http://localhost:3001/api/movies',
         success: (movies)=>{
             $.each(movies, (i, movie)=>{
                 console.log(movie.title);
@@ -47,29 +47,16 @@ $(function (){
 
 
 });
-function buildTable(data){
 
-
-
+/*
+    Side note. preferably if we could calculate how many elemnts there can be in one "page"
+*   Checks if there is overlflow in the list, if there is put items on another page untill it isn't
+*   Add buttons based on how many pages there are
+*
+*/
+function thing(){
 
 }
 
-function searchTable(value, movies){
 
-    var filterTable = [];
-
-    $.each(movies, (i, movie)=>{
-
-
-    });
-}
-
-
-    function sortByRating(){
-
-    }
-
-    function sortByOrder(){
-
-    }
 
