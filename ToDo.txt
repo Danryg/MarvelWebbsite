@@ -1,0 +1,26 @@
+TODO
+
+Fix Filtering
+- Sort by rating, order to watch and name
+- Tidy upp the estetics of the filter menu
+
+Fix the content menu
+- Make the overflow go into another "page"
+    - Make the pages dissapear when there is no overflow
+
+Fix the content items
+- Make a rating slide upp when hovering over them
+    - and a small desc of the movie
+    - meyby release date at the bottom if there is space for it
+    
+Fix the detailed site of the clicked item
+- be abel to click on a movie and get a better description of it and its rating
+- Mayby be able to comment on it
+- Content
+    - Title
+    - Rating
+    - Desciption
+    - Trailer
+    - Picture
+    - Release date
+    - Famous actors
