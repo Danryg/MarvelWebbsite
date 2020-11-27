@@ -13,7 +13,7 @@ function getAllMovies(){
 
     $.ajax({
         type:'GET',
-        url: 'http://localhost:3000/api/movies',
+        url: 'http://192.168.1.150:3000/api/movies',
         success: (movies)=>{
             placeAllMovies(movies);
         }
@@ -49,7 +49,7 @@ function placeAllMovies(movies){
     var i = 0;
     $.each(movies, (i, movie)=>{
         if(i < $maxElementsPerPage)
-        $movielist.append("<li><div class='bg'></div><p id='title'>"+movie.title+"</p></li>");
+        $movielist.append("<li><div class='bg'><p id='title'>"+movie.title+"</p><p id='desc'>"+movie.desc+"</p><div class='container'><a href='' class='btn btn-2'>more</a></div></li>");
 
        i++;
 
@@ -63,6 +63,7 @@ $(function (){
 
 
     getAllMovies();
+
 
     $(window).resize(function(){
         console.log("resize");

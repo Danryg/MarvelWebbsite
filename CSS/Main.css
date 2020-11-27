@@ -127,13 +127,17 @@ nav div#Logo-container img {
           justify-content: center;
   padding: 1em;
   text-align: center;
-
-    position: relative;
-    top: -50%;
-
+position: relative;
+   z-index: 200;
 
 
 }
+div#LeftPanel div.container{
+     position: relative;
+    top: -50%;
+
+}
+
 @media (min-width: 600px) {
   .container {
     -webkit-box-orient: horizontal;
@@ -201,7 +205,7 @@ nav div#Logo-container img {
 .btn-2:hover:before {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  border-color: #fff;
+  border-color: #981005;
   -webkit-transition: width 350ms ease-in-out;
   transition: width 350ms ease-in-out;
   width: 70%;
@@ -284,15 +288,36 @@ section#Content ul li{
     background-repeat: no-repeat;
 }
 
-section#Content ul li p{
+section#Content ul li .bg p#title{
     position: absolute;
     width: 100%;
 
     font-family: Endgame;
     color: white;
     margin-bottom: 20px;
-    bottom: 0;
+    top: 0px;
     z-index: 1;
+
+    text-align: center;
+
+}
+section#Content ul li .bg p#desc{
+
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 70%;
+
+    font-family: Endgame;
+    color: white;
+    margin-bottom: 20px;
+    top: 14%;
+    z-index: 1;
+
+    font-size: 8px;
+
+    overflow: hidden;
+
 
     text-align: center;
 
@@ -302,17 +327,24 @@ section#Content ul li div.bg{
     height: 100%;
     position: absolute;
 
-    top: 80%;
+    top: 85%;
 
     z-index: 0;
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.6);
 }
 
 section#Content ul li:hover div.bg{
     top: 0%;
 }
+section#Content ul li .container{
+    border-color: red;
+}
 
-section#Content ul li
+section#Content ul li div.container a.btn-2{
+    border-color: red;
+   top: 55%;
+}
+
 
 #panel1{
     display: none;
