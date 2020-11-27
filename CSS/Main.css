@@ -58,7 +58,7 @@ div#BackGround #poster{
     background-color: rgba(50, 45, 71,0.7);
 }
 
-
+/* ------------------------------------------NAVIGERING---------------------------------------------------- */
 nav{
     display: flex;
     flex-direction: row;
@@ -108,7 +108,7 @@ nav div#Logo-container img {
 }
 
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+/*movies buttom container*/
 
 .container {
     box-sizing: border-box;
@@ -213,7 +213,9 @@ nav div#Logo-container img {
   width: 70%;
 }
 
-/********* CONTENT ************ */
+/*------------------------------------------- FILTER -------------------------------------------------------*/
+
+/*------------------------------------------- CONTENT ------------------------------------------------------*/
 
 section{
     margin-top: 100px;
@@ -235,9 +237,11 @@ section#Content{
     background-color: rgba(50, 45, 71,0.7);
     position: relative;
     width: 90vw;
-    height: 1000px;
+    height: 1300px;
 
     left: 5vw;
+
+    overflow: hidden;
 
     border-left: 1px;
     border: solid 1px #981005;;
@@ -245,27 +249,34 @@ section#Content{
 
 
 section#Content ul{
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 600px;
+    height: 100%;
     display: flex;
     flex-direction: row;
 
     list-style: none;
     flex-wrap: wrap;
+    align-content: flex-start;
 
+    overflow: hidden;
 
 
 }
 section#Content ul li{
     position: relative;
     width: 15%;
-    height: 400px;
+    height: 40%;
 
     cursor: pointer;
 
-    margin-top: 40px;
-    margin-left: 50px;
+    margin: 0.9%;
+
+    min-width: 230px;
+    padding: 0;
+    border: 0;
+
+    overflow: hidden;
 
     background-image: url(/Images/Avengers-Endgame-2019-Android-Wallpaper.jpg);
     background-position: center;
@@ -290,9 +301,58 @@ section#Content ul li div.bg{
     width: 100%;
     height: 100%;
     position: absolute;
+
+    top: 80%;
+
     z-index: 0;
-    /*background-color: rgba(255,0,0,0.5);*/
+    background-color: rgba(0,0,0,1);
 }
+
+section#Content ul li:hover div.bg{
+    top: 0%;
+}
+
+section#Content ul li
+
+#panel1{
+    display: none;
+
+}
+
+#panel2 {
+
+
+}
+
+#panel3 {
+
+}
+
+#pageButtons {
+    width: 500px;
+    height: 100px;
+
+    position: absolute;
+    bottom: 0px;
+
+    color: red;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.pButton{
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid black;
+    text-align: center;
+    margin: 20px;
+
+    cursor: pointer;
+}
+
+
 
 
 
