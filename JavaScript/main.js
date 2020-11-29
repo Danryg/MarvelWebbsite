@@ -16,7 +16,7 @@ function getAllMovies(){
         type:'GET',
         url: 'http://192.168.1.150:3000/api/movies',
         success: (movies)=>{
-            placeAllMovies(movies);
+            placeAllMovies(movies, "");
             $moviesFromStart = movies;
         }
     });
@@ -30,15 +30,13 @@ function placeAllMovies(movies, value){
     $Content.find('ul').remove();
     removeButtons();
 
+    $Content.append('<ul  class="ContentList" id="panel1"></ul>');
     var $movielist = $('#panel1');
     $movielist.append("<li><div class='bg'></div><p id='title'>Test</p></li>");
 
 
 
     var $LiElement = $movielist.find('li');
-
-
-
     var $LiWidth = $LiElement.outerWidth(true);
     var $LiHeight = $LiElement.outerHeight(true);
 
@@ -65,9 +63,9 @@ function placeAllMovies(movies, value){
     addButton(1);
     $.each(movies, (i, movie)=>{
 
-
-        if(movie.title.toLowerCase().indexOf(value) > -1){
-            return false;
+        console.log(movie.title.toLowerCase().indexOf(value));
+        if(!(movie.title.toLowerCase().indexOf(value) > -1)){
+            return;
         }
 
         if(o < $maxElementsPerPage){
@@ -75,7 +73,10 @@ function placeAllMovies(movies, value){
 
 
         }else{
-
+            console.log("i: " +i);
+            if(i == movies.length){
+                return false;
+            }
             panelNumber++;
             o = 0;
 
@@ -87,7 +88,7 @@ function placeAllMovies(movies, value){
             console.log($currentList +"    i: " + o);
             addButton(panelNumber);
 
-
+            $currentList.append("<li><div class='bg'><p id='title'>"+movie.title+"</p><p id='desc'>"+movie.desc+"</p><div class='container'><a href='' class='btn btn-2'>more</a></div></li>");
 
         }
 
@@ -146,10 +147,10 @@ $(function (){
 
 
     $(window).resize(function(){
-        console.log("resize");
+        onResize();
 
     }).delay(1000, function(){
-        console.log("Resize 2");
+
 
     });
 
