@@ -371,6 +371,7 @@ section#Content ul li div.container a.btn-2{
 
     display: flex;
     flex-direction: row;
+    z-index: 1000;
 }
 
 .pButton{

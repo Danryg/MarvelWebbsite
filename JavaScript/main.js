@@ -2,8 +2,9 @@
 
 
 
-
-
+var $Content;
+var AllMovies;
+var $moviesFromStart;
 $('#search-input').on('keyup', function(){
     var value = $(this).val();
     console.log(value);
@@ -16,14 +17,22 @@ function getAllMovies(){
         url: 'http://192.168.1.150:3000/api/movies',
         success: (movies)=>{
             placeAllMovies(movies);
+            $moviesFromStart = movies;
         }
     });
 }
 
 
-function placeAllMovies(movies){
+
+
+function placeAllMovies(movies, value){
+
+    $Content.find('ul').remove();
+    removeButtons();
+
     var $movielist = $('#panel1');
     $movielist.append("<li><div class='bg'></div><p id='title'>Test</p></li>");
+
 
 
     var $LiElement = $movielist.find('li');
@@ -32,7 +41,9 @@ function placeAllMovies(movies){
 
     var $LiWidth = $LiElement.outerWidth(true);
     var $LiHeight = $LiElement.outerHeight(true);
+
     $movielist.find('li').remove();
+
 
     var $PanelWidth = $movielist.width();
     var $PanelHeight = $movielist.height();
@@ -43,32 +54,106 @@ function placeAllMovies(movies){
 
     var $maxElementsPerPage = $maxRows * $maxElementsPerRow;
 
+
+
     console.log("Max Rows = " + $maxRows + "   max elements per row = " + $maxElementsPerRow + " Max elements: " + $maxElementsPerPage);
 
 
-    var i = 0;
+    var o = 0;
+    var panelNumber = 1;
+    var $currentList = $movielist;
+    addButton(1);
     $.each(movies, (i, movie)=>{
-        if(i < $maxElementsPerPage)
-        $movielist.append("<li><div class='bg'><p id='title'>"+movie.title+"</p><p id='desc'>"+movie.desc+"</p><div class='container'><a href='' class='btn btn-2'>more</a></div></li>");
 
-       i++;
+
+        if(movie.title.toLowerCase().indexOf(value) > -1){
+            return false;
+        }
+
+        if(o < $maxElementsPerPage){
+        $currentList.append("<li><div class='bg'><p id='title'>"+movie.title+"</p><p id='desc'>"+movie.desc+"</p><div class='container'><a href='' class='btn btn-2'>more</a></div></li>");
+
+
+        }else{
+
+            panelNumber++;
+            o = 0;
+
+            $Content.append("<ul class'ContentList' id='panel"+panelNumber+"'></ul>");
+            var id = "#panel" +panelNumber;
+
+            $currentList = $Content.find(id);
+
+            console.log($currentList +"    i: " + o);
+            addButton(panelNumber);
+
+
+
+        }
+
+       o++;
 
     });
 }
 
+function addButton(number){
+    var $buttonContainer = $Content.find('#pageButtons');
+
+    $buttonContainer.append("<div class='pButton' data-panelid='panel"+number+"'>"+number+"</div>");
+    addButtonFucntionality($buttonContainer);
+
+}
+
+function addButtonFucntionality(buttonContainer){
+    $buttons = buttonContainer.find('.pButton');
+
+    $buttons.on("click", function(){
+        hideAllPanels();
+        var panelid = $(this).attr('data-panelid');
+        panelid = '#' +panelid;
+        console.log(panelid);
+        $Content.find(panelid).show();
+
+    });
+}
+
+function hideAllPanels(){
+    $panels = $Content.find('ul');
+    $panels.hide();
+}
+
+function addMovie(title, desc){
+
+
+}
+
+function removeButtons(){
+    var $buttonContainer = $Content.find('#pageButtons');
+    $buttonContainer.find("div").remove();
+}
+function onResize(){
+    getAllMovies();
+}
 
 
 $(function (){
 
 
 
+    $Content = $('#Content');
     getAllMovies();
+
 
 
     $(window).resize(function(){
         console.log("resize");
-        getAllMovies();
+
+    }).delay(1000, function(){
+        console.log("Resize 2");
+
     });
+
+
 
     var $filter = $('#Filter');
     var $searchInput =  $filter.find('#searchInput');
@@ -76,12 +161,9 @@ $(function (){
 
         var value = $('#searchInput').val();
 
-        var rows = $('.ContentList li');
-        rows.filter(function(){
-            console.log(value + " compared to " +  $(this).find('p').text());
-            $(this).toggle($(this).find('p').text().toLowerCase().indexOf(value) > -1);
-        });
+        var rows = $('#Content li');
 
+        placeAllMovies($moviesFromStart, value);
     });
 
 });
